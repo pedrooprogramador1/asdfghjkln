@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Visitas</title>
+</head>
+<body>
+    <h1>Bem-vindo ao meu site!</h1>
+    <p>Este site foi visitado <span id="contador">0</span> vezes.</p>
+
+    <script>
+        // Verifica se existe uma chave 'visitas' no localStorage
+        if (localStorage.getItem('visitas') === null) {
+            // Se não existir, inicializa com 0
+            localStorage.setItem('visitas', '0');
+        }
+
+        // Recupera o contador de visitas do localStorage
+        let visitas = parseInt(localStorage.getItem('visitas'));
+
+        // Incrementa o contador
+        visitas++;
+
+        // Atualiza o valor no localStorage
+        localStorage.setItem('visitas', visitas.toString());
+
+        // Exibe o contador na página
+        document.getElementById('contador').textContent = visitas;
+    </script>
+</body>
+</html>
